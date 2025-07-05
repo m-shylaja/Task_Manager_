@@ -1,5 +1,9 @@
 
 ## Project info
+![image](https://github.com/user-attachments/assets/591faf77-bf7e-4d35-bb7d-bb8006d209f7)
+
+![image](https://github.com/user-attachments/assets/6c68a541-ae49-459a-bdd7-dbb22ad86158)
+
 
 **URL**: https://organize-tasks-now.lovable.app/
 
