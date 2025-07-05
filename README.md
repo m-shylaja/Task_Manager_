@@ -1,7 +1,7 @@
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/d312c03d-e8f3-4b36-842f-c36d60287f40
+**URL**: https://organize-tasks-now.lovable.app/
 
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
