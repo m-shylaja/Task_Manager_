@@ -9,6 +9,7 @@ import { Calendar, CheckCircle2, Clock, FolderOpen, Plus, Users, BarChart3 } fro
 import TaskManager from "@/components/TaskManager";
 import ProjectManager from "@/components/ProjectManager";
 import UserManager from "@/components/UserManager";
+import UserMenu from "@/components/UserMenu";
 import { useTaskStore } from "@/store/taskStore";
 
 const Index = () => {
@@ -31,16 +32,19 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="container mx-auto px-4 py-8">
-        {/* Header */}
+        {/* Header with User Menu */}
         <div className="mb-8">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-              <BarChart3 className="h-6 w-6 text-white" />
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                <BarChart3 className="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <h1 className="text-3xl font-bold text-gray-900">Task Manager</h1>
+                <p className="text-gray-600">Organize your projects and track your progress</p>
+              </div>
             </div>
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900">Task Manager</h1>
-              <p className="text-gray-600">Organize your projects and track your progress</p>
-            </div>
+            <UserMenu />
           </div>
         </div>
 
