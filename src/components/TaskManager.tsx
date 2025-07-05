@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -21,15 +20,24 @@ const TaskManager = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [editingTask, setEditingTask] = useState<Task | null>(null);
 
-  const [newTask, setNewTask] = useState({
+  const [newTask, setNewTask] = useState<{
+    name: string;
+    description: string;
+    projectId: string;
+    status: 'todo' | 'in-progress' | 'completed';
+    priority: 'low' | 'medium' | 'high';
+    assignedTo: string;
+    dueDate: string;
+    tags: string[];
+  }>({
     name: "",
     description: "",
     projectId: "",
-    status: "todo" as const,
-    priority: "medium" as const,
+    status: "todo",
+    priority: "medium",
     assignedTo: "",
     dueDate: "",
-    tags: [] as string[],
+    tags: [],
   });
 
   const filteredTasks = tasks.filter(task => {
@@ -180,7 +188,7 @@ const TaskManager = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <Label htmlFor="status">Status</Label>
-                  <Select value={newTask.status} onValueChange={(value: any) => setNewTask({ ...newTask, status: value })}>
+                  <Select value={newTask.status} onValueChange={(value: 'todo' | 'in-progress' | 'completed') => setNewTask({ ...newTask, status: value })}>
                     <SelectTrigger>
                       <SelectValue />
                     </SelectTrigger>
@@ -194,7 +202,7 @@ const TaskManager = () => {
 
                 <div>
                   <Label htmlFor="priority">Priority</Label>
-                  <Select value={newTask.priority} onValueChange={(value: any) => setNewTask({ ...newTask, priority: value })}>
+                  <Select value={newTask.priority} onValueChange={(value: 'low' | 'medium' | 'high') => setNewTask({ ...newTask, priority: value })}>
                     <SelectTrigger>
                       <SelectValue />
                     </SelectTrigger>

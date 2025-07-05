@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -19,11 +18,16 @@ const ProjectManager = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [editingProject, setEditingProject] = useState<Project | null>(null);
 
-  const [newProject, setNewProject] = useState({
+  const [newProject, setNewProject] = useState<{
+    name: string;
+    description: string;
+    ownerId: string;
+    status: 'active' | 'completed' | 'archived';
+  }>({
     name: "",
     description: "",
     ownerId: "",
-    status: "active" as const,
+    status: "active",
   });
 
   const filteredProjects = projects.filter(project =>
@@ -155,7 +159,7 @@ const ProjectManager = () => {
 
               <div>
                 <Label htmlFor="status">Status</Label>
-                <Select value={newProject.status} onValueChange={(value: any) => setNewProject({ ...newProject, status: value })}>
+                <Select value={newProject.status} onValueChange={(value: 'active' | 'completed' | 'archived') => setNewProject({ ...newProject, status: value })}>
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
